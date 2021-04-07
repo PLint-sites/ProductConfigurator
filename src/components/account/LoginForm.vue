@@ -10,7 +10,7 @@
                     <input type="text" class="form-control" name="username" placeholder="Username" v-model="username">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="password" placeholder="Password" v-model="password">
+                    <input type="password" class="form-control" name="password" placeholder="Password" v-model="password">
                 </div>
                 <button type="submit" class="btn btn-secondary"><i class="fa fa-lock"></i> Sign In</button>
             </form>
