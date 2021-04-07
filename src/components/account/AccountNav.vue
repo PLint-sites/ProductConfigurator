@@ -8,14 +8,14 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">Super cool personal postcard configurator</a>
+                        </button>                        
                     </div>
-                    <LoginForm 
+                    <h1>Personal postcard configurator</h1>
+                    <!--<LoginForm 
                         :auth="auth"
                         @login="attemptLogin"
                         @logout="logout"
-                    />
+                    />-->
                 </div>
             </div>
         </div>
@@ -49,8 +49,10 @@
     background: @orange;
     border-color: #cc7a00;
     
-    .navbar-brand {
+    h1 {
         color: white;
+        text-align: center;
+        margin-top: 10px;
     }
 }
 </style>
