@@ -1,12 +1,17 @@
 <template>
     <div>
-        <button class="btn btn-primary pull-right"><i class="fa fa-chevron-right"></i> Proceed to checkout</button>
+        <button class="btn btn-primary pull-right" @click="clickHandler"><i class="fa fa-chevron-right"></i> Proceed to checkout</button>
     </div>
 </template>
 
 <script>
     export default {
         name: 'CheckoutButton',
+        methods: {
+            clickHandler() {
+                this.$emit('clicked')
+            },
+        },
     }
 </script>
 

@@ -23,48 +23,76 @@
                     </div>
 
                     <div class="col-md-6">
-                        <ProceedToCheckoutButton />
+                        <ProceedToCheckoutButton @clicked="handleSubmit"/>
                     </div>
                 </footer>
             </div>
         </div>
+
+        <sweet-modal icon="success" ref="modal">
+            Normally, you would proceed to the checkout, fill out the form and get your product. But this is a demo and this popup is the finish!
+        </sweet-modal>
     </div>
 </template>
 
 <script>
-    import { mapState, mapActions } from 'vuex'
-    import ProductList from './ProductList'
-    import PriceContainer from './PriceContainer'
-    import ProceedToCheckoutButton from './ProceedToCheckoutButton'
-    export default {
-        name: 'PostCardConfigurator',
-        components: {
-            ProductList,
-            PriceContainer,
-            ProceedToCheckoutButton,
+import { mapState, mapActions } from 'vuex'
+import ProductList from './ProductList'
+import PriceContainer from './PriceContainer'
+import ProceedToCheckoutButton from './ProceedToCheckoutButton'
+import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
+export default {
+    name: 'PostCardConfigurator',
+    components: {
+        ProductList,
+        PriceContainer,
+        ProceedToCheckoutButton,
+        SweetModal,
+        SweetModalTab
+    },
+    computed: {
+        ...mapState('configurator', {
+            products: 'products',
+            price: 'price'
+        })
+    },
+    methods: {
+        ...mapActions('configurator', [
+            'addProduct',
+            'removeProduct',
+            'updatePrice',
+            'resetProduct'
+        ]),
+        handleSubmit() {
+            console.log('hallo')
+            this.$refs.modal.open()
         },
-        computed: {
-            ...mapState('configurator', {
-                products: 'products',
-                price: 'price'
-            })
-        },
-        methods: {
-            ...mapActions('configurator', [
-                'addProduct',
-                'removeProduct',
-                'updatePrice',
-                'resetProduct'
-            ])
-        },
-        mounted() {
-            this.updatePrice()
-        },
-    }
+    },
+    mounted() {
+        this.updatePrice()
+    },
+}
 </script>
 
 <style lang="less">
 @orange: #FF9900;
+
+.sweet-modal {
+    box-shadow: 0px 8px 46px rgb(255 165 0 / 20%), 0px 2px 6px rgb(255 165 0 / 30%);
+}
+
+.sweet-modal .sweet-box-actions .sweet-action-close:hover {
+    background: @orange;
+}
+
+.sweet-modal-icon.sweet-modal-success .sweet-modal-placeholder {
+    border-color: @orange !important;
+}
+
+.sweet-modal-icon.sweet-modal-success .sweet-modal-line {
+    background-color: @orange;
+}
+
 p {
     padding: 10px 30px 20px;
 }
