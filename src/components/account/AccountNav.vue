@@ -11,6 +11,9 @@
                         </button>                        
                     </div>
                     <h1>Personal postcard configurator</h1>
+                    <select v-model="i18n.locale">
+                        <option v-for="(locale, key) in i18n.locales" :key="key" :value="key">{{locale.__name__}}</option>
+                    </select>
                     <!--<LoginForm 
                         :auth="auth"
                         @login="attemptLogin"
@@ -23,23 +26,24 @@
 </template>
 
 <script>
-    import { mapState, mapActions } from 'vuex'
-    import LoginForm from './LoginForm'
-    export default {
-        name: 'AccountNav',
-        components: {LoginForm},
-        computed: {
-            ...mapState('account', [
-                'auth'
-            ]),
-        },
-        methods: {
-            ...mapActions('account', [
-                'attemptLogin',
-                'logout'
-            ])
-        },
-    }
+import { mapState, mapActions } from 'vuex'
+import LoginForm from './LoginForm'
+export default {
+    name: 'AccountNav',
+    components: {LoginForm},
+    computed: {
+        ...mapState('account', [
+            'auth'
+        ]),
+        ...mapState('i18n', ['i18n']),
+    },
+    methods: {
+        ...mapActions('account', [
+            'attemptLogin',
+            'logout'
+        ])
+    },
+}
 </script>
 
 <style lang="less" scoped>

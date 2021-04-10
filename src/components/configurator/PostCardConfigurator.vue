@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <p>
-                    Use the configurator below to create your own stunning postcard. Just choose the card’s shape and paper size. Add your headline and main text and we’ll take care of the rest. The price will automatically adjust during your configuration.
+                    {{ introduction1 }}
                     <br>
                     <br>
-                    Simply configure multiple cards by adding another!
+                    {{ introduction2 }}
                 </p>
 
                 <ProductList 
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 import ProductList from './ProductList'
 import PriceContainer from './PriceContainer'
 import ProceedToCheckoutButton from './ProceedToCheckoutButton'
@@ -54,7 +54,8 @@ export default {
         ...mapState('configurator', {
             products: 'products',
             price: 'price'
-        })
+        }),
+        ...mapGetters('i18n', ['introduction1', 'introduction2']),
     },
     methods: {
         ...mapActions('configurator', [
@@ -64,7 +65,6 @@ export default {
             'resetProduct'
         ]),
         handleSubmit() {
-            console.log('hallo')
             this.$refs.modal.open()
         },
     },
