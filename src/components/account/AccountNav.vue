@@ -10,7 +10,7 @@
                             <span class="icon-bar"></span>
                         </button>                        
                     </div>
-                    <h1>Personal postcard configurator</h1>
+                    <h1>{{ title }}</h1>
                     <select v-model="i18n.locale">
                         <option v-for="(locale, key) in i18n.locales" :key="key" :value="key">{{locale.__name__}}</option>
                     </select>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 import LoginForm from './LoginForm'
 export default {
     name: 'AccountNav',
@@ -36,6 +36,7 @@ export default {
             'auth'
         ]),
         ...mapState('i18n', ['i18n']),
+        ...mapGetters('i18n', ['title']),
     },
     methods: {
         ...mapActions('account', [
@@ -57,6 +58,12 @@ export default {
         color: white;
         text-align: center;
         margin-top: 10px;
+    }
+
+    select {
+        position: absolute;
+        top: 2px;
+        right: 2px;
     }
 }
 </style>
