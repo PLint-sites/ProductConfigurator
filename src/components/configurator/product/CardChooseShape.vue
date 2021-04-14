@@ -1,6 +1,6 @@
 <template>
     <div class="form-group">
-        <label for="shape">Papershape</label>
+        <label for="shape">{{ lang['product']['papershape'] }}</label>
         <div>
             <CardCustomRadioShape theshape="square" :current="shape" @shape-chosen="chosen" :id="id"/>
             <CardCustomRadioShape theshape="portrait" :current="shape" @shape-chosen="chosen" :id="id"/>
@@ -12,19 +12,23 @@
 </template>
 
 <script>
-    import CardCustomRadioShape from './CardCustomRadioShape'
-    export default {
-        name: 'CardChooseShape',
-        components: {CardCustomRadioShape},
-        model: {
-            prop: 'shape',
-            event: 'changed'
+import { mapGetters } from 'vuex'
+import CardCustomRadioShape from './CardCustomRadioShape'
+export default {
+    name: 'CardChooseShape',
+    components: {CardCustomRadioShape},
+    model: {
+        prop: 'shape',
+        event: 'changed'
+    },
+    props: ['shape', 'id'],
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+    },
+    methods: {
+        chosen(cardShape) {
+            this.$emit('changed', cardShape)
         },
-        props: ['shape', 'id'],
-        methods: {
-            chosen(cardShape) {
-                this.$emit('changed', cardShape)
-            },
-        },
-    }
+    },
+}
 </script>

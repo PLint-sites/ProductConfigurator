@@ -1,18 +1,22 @@
 <template>
     <div>
-        <button class="btn btn-primary pull-right" @click="clickHandler"><i class="fa fa-chevron-right"></i> Proceed to checkout</button>
+        <button class="btn btn-primary pull-right" @click="clickHandler"><i class="fa fa-chevron-right"></i> {{ lang['checkoutButtonText'] }}</button>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'CheckoutButton',
-        methods: {
-            clickHandler() {
-                this.$emit('clicked')
-            },
+import { mapGetters } from 'vuex'
+export default {
+    name: 'CheckoutButton',
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+    },
+    methods: {
+        clickHandler() {
+            this.$emit('clicked')
         },
-    }
+    },
+}
 </script>
 
 <style lang="less" scoped>

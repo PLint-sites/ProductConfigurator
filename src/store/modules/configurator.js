@@ -4,8 +4,8 @@ const state = {
         {
             id: uuidv4(),
             config: {
-                heading: 'A fancy headline',
-                body: 'lorem ipsum amit set dolores. Help!',
+                heading: '',
+                body: '',
                 amount: 10,
                 shape: 'portrait', // options: 'rect', 'diamond', 'circle', portrait' or 'landscape'
                 size: 'a4', // other options: 'a5'/'a6'
@@ -83,7 +83,7 @@ const createNewProduct = () => ({
     id: uuidv4(),
     config: {
         heading: '',
-        body:  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+        body:  '',
         amount: 10,
         shape: 'square',
         size: 'a4',

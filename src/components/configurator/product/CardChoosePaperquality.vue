@@ -1,6 +1,6 @@
 <template>
     <div class="form-group">
-        <label for="quality">Paperquality</label>
+        <label for="quality">{{ lang['product']['quality'] }}</label>
         <div>
             <div class="custom-input inline">
                 <input :id="normalId" type="radio" value="normal" :checked="quality === 'normal'" @change="chosen"><label :for="normalId">Normal</label>
@@ -13,27 +13,29 @@
 </template>
 
 <script>
-    export default {
-        name: 'CardChoosePaperquality',
-        model: {
-            prop: 'quality',
-            event: 'chosen'
+import { mapGetters } from 'vuex'
+export default {
+    name: 'CardChoosePaperquality',
+    model: {
+        prop: 'quality',
+        event: 'chosen'
+    },
+    props: ['id', 'quality'],
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+        normalId() {
+            return `normal_${this.id}`
         },
-        props: ['id', 'quality'],
-        computed: {
-            normalId() {
-                return `normal_${this.id}`
-            },
-            extraId() {
-                return `extra_${this.id}`
-            },
+        extraId() {
+            return `extra_${this.id}`
         },
-        methods: {
-            chosen(e) {
-                this.$emit('chosen', e.target.value)
-            },
+    },        
+    methods: {
+        chosen(e) {
+            this.$emit('chosen', e.target.value)
         },
-    }
+    },
+}
 </script>
 
 <style lang="less" scoped>

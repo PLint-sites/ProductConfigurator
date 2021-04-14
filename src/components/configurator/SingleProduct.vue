@@ -17,7 +17,7 @@
                 <CardChooseHeadline v-model="config.heading" @input="updateParent" />
                 <CardChooseMaintext v-model="config.body" @input="updateParent" />
 
-                <button class="btn-link pull-right" @click="resetProduct">Clear configuration</button>
+                <button class="btn-link pull-right" @click="resetProduct">{{ lang['product']['clearLinkText'] }}</button>
             </div>
         </div>
         
@@ -25,39 +25,42 @@
 </template>
 
 <script>
-    import CardChooseShape from './product/CardChooseShape'
-    import CardChoosePapersize from './product/CardChoosePapersize'
-    import CardChooseAmount from './product/CardChooseAmount'
-    import CardChoosePaperquality from './product/CardChoosePaperquality'
-    import CardChooseHeadline from './product/CardChooseHeadline'
-    import CardChooseMaintext from './product/CardChooseMaintext'
-    export default {
-        name: 'Product',
-        components: {
-            CardChooseShape,
-            CardChoosePapersize,
-            CardChooseAmount,
-            CardChoosePaperquality,
-            CardChooseHeadline,
-            CardChooseMaintext,
+import { mapGetters } from 'vuex'
+import CardChooseShape from './product/CardChooseShape'
+import CardChoosePapersize from './product/CardChoosePapersize'
+import CardChooseAmount from './product/CardChooseAmount'
+import CardChoosePaperquality from './product/CardChoosePaperquality'
+import CardChooseHeadline from './product/CardChooseHeadline'
+import CardChooseMaintext from './product/CardChooseMaintext'
+export default {
+    name: 'Product',
+    components: {
+        CardChooseShape,
+        CardChoosePapersize,
+        CardChooseAmount,
+        CardChoosePaperquality,
+        CardChooseHeadline,
+        CardChooseMaintext,
+    },
+    model: {
+        prop: 'config',
+    },
+    props: ['id', 'config'],
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+    },
+    methods: {
+        updateParent() {
+            this.$emit('product-updated')
         },
-        model: {
-            prop: 'config',
+        resetProduct() {
+            this.$emit('reset-product', this.id)
         },
-        props: ['id', 'config'],
-        computed: {},
-        methods: {
-            updateParent() {
-                this.$emit('product-updated')
-            },
-            resetProduct() {
-                this.$emit('reset-product', this.id)
-            },
-            removeProduct() {
-                this.$emit('remove-product', this.id)
-            },
+        removeProduct() {
+            this.$emit('remove-product', this.id)
         },
-    }
+    },
+}
 </script>
 
 <style lang="less" scoped>

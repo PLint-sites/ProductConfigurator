@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <p>
-                    {{ introduction1 }}
+                    {{ lang['introduction1'] }}
                     <br>
                     <br>
-                    {{ introduction2 }}
+                    {{ lang['introduction2'] }}
                 </p>
 
                 <ProductList 
@@ -29,9 +29,7 @@
             </div>
         </div>
 
-        <sweet-modal icon="success" ref="modal">
-            Normally, you would proceed to the checkout, fill out the form and get your product. But this is a demo and this popup is the finish!
-        </sweet-modal>
+        <sweet-modal icon="success" ref="modal">{{ lang['checkoutMessage'] }}</sweet-modal>
     </div>
 </template>
 
@@ -55,7 +53,7 @@ export default {
             products: 'products',
             price: 'price'
         }),
-        ...mapGetters('i18n', ['introduction1', 'introduction2']),
+        ...mapGetters('i18n', ['lang']),
     },
     methods: {
         ...mapActions('configurator', [

@@ -1,6 +1,6 @@
 <template>
     <div class="form-group">
-        <label for="size">Papersize</label>
+        <label for="size">{{ lang['product']['papersize'] }}</label>
         <select id="size" class="form-control" :value="size" @change="chosen">
             <option value="a4">A4</option>
             <option value="a5">A5</option>
@@ -10,17 +10,21 @@
 </template>
 
 <script>
-    export default {
-        name: 'CardChoosePapersize',
-        model: {
-            prop: 'size',
-            event: 'chosen'
+import { mapGetters } from 'vuex'
+export default {
+    name: 'CardChoosePapersize',
+    model: {
+        prop: 'size',
+        event: 'chosen'
+    },
+    props: ['size'],
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+    },
+    methods: {
+        chosen(e) {
+            this.$emit('chosen', e.target.value)
         },
-        props: ['size'],
-        methods: {
-            chosen(e) {
-                this.$emit('chosen', e.target.value)
-            },
-        },
-    }
+    },
+}
 </script>

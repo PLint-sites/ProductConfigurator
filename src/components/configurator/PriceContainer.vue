@@ -1,14 +1,18 @@
 <template>
     <div id="price">
-        Price: &euro; {{ price.toFixed(2) }}
+        {{ lang['price'] }}: &euro; {{ price.toFixed(2) }}
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'Price',
-        props: ['price'],
-    }
+    import { mapGetters } from 'vuex'
+export default {
+    name: 'Price',
+    props: ['price'],
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+    },
+}
 </script>
 
 <style lang="less" scoped>

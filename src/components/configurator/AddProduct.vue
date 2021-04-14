@@ -5,23 +5,25 @@
 </template>
 
 <script>
-    export default {
-        name: 'addProduct',
-        props: ['products'],
-        computed: {
-            buttonText() {
-                if (this.products.length > 0) {
-                    return '+ Add another product'
-                }
-                return '+ Add a product'
-            },
+import { mapGetters } from 'vuex'
+export default {
+    name: 'addProduct',
+    props: ['products'],
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+        buttonText() {
+            if (this.products.length > 0) {
+                return this.lang['addAnotherProductButtonText']
+            }
+            return this.lang['addProductButtonText']
         },
-        methods: {
-            add() {
-                this.$emit('add-product')
-            },
+    },
+    methods: {
+        add() {
+            this.$emit('add-product')
         },
-    }
+    },
+}
 </script>
 
 <style lang="less" scoped>
@@ -37,7 +39,6 @@
     display: block;
     background: #6AA84F;
     border: 1px solid #578b41;
-    width: 180px;
     margin-left: auto;
     margin-right: auto;
     top: 50%;

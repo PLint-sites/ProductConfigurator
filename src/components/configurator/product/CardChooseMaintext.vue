@@ -1,20 +1,24 @@
 <template>
     <div class="form-group">
-        <label for="body">Main text</label>
-        <textarea id="body" class="form-control" placeholder="Your text here" :value="value" @input="updateParent"></textarea>
+        <label for="body">{{ lang['product']['bodytext'] }}</label>
+        <textarea id="body" class="form-control" :placeholder="lang['product']['bodytextPlaceholder']" :value="value" @input="updateParent"></textarea>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'CardChooseMaintext',
-        props: ['value'],
-        methods: {
-            updateParent(e) {
-                this.$emit('input', e.target.value)
-            },
+import { mapGetters } from 'vuex'
+export default {
+    name: 'CardChooseMaintext',
+    props: ['value'],
+    computed: {
+        ...mapGetters('i18n', ['lang']),
+    },
+    methods: {
+        updateParent(e) {
+            this.$emit('input', e.target.value)
         },
-    }
+    },
+}
 </script>
 
 <style lang="less" scoped>
