@@ -65,8 +65,7 @@ export default {
 
 <style lang="less" scoped>
 .single-product {
-    height: 400px;
-    padding: 10px 30px 30px 30px;
+    padding: 10px 20px 20px 20px;
     border: 1px solid #dcdcdc;
     margin-bottom: 20px;
 

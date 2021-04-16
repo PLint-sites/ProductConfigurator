@@ -31,7 +31,7 @@ export default {
     position: relative;
     height: 200px;
     border: 1px dashed #dcdcdc;
-    margin: 20px 30px;
+    margin: 20px 0px;
 
     display: grid;
     place-items: center;
@@ -41,6 +41,11 @@ export default {
         border: 1px solid #578b41;
         color: white;
         font-weight: bold;
+
+        &:focus {
+            outline: none;
+            background: #578b41;
+        }
     }
 }
 
