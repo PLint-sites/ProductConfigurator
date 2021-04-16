@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
-    <AccountNav />
-    <PostCardConfigurator/>
-  </div>
+    <div id="app">
+        <AccountNav />
+        <PostCardConfigurator/>
+    </div>
 </template>
 
 <script>
@@ -28,9 +28,5 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 0px;
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
 }
 </style>

@@ -1,33 +1,29 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <p>
-                    {{ lang['introduction1'] }}
-                    <br>
-                    <br>
-                    {{ lang['introduction2'] }}
-                </p>
+    <div>
+        <p>
+            {{ lang['introduction1'] }}
+            <br>
+            <br>
+            {{ lang['introduction2'] }}
+        </p>
 
-                <ProductList 
-                    :products="products"
-                    @update-price="updatePrice"
-                    @reset-product="resetProduct"
-                    @remove-product="removeProduct"
-                    @add-product="addProduct"
-                />
-                
-                <footer class="row">
-                    <div class="col-md-6">
-                        <PriceContainer :price="price"/>
-                    </div>
-
-                    <div class="col-md-6">
-                        <ProceedToCheckoutButton @clicked="handleSubmit"/>
-                    </div>
-                </footer>
+        <ProductList 
+            :products="products"
+            @update-price="updatePrice"
+            @reset-product="resetProduct"
+            @remove-product="removeProduct"
+            @add-product="addProduct"
+        />
+        
+        <footer class="row">
+            <div class="col-md-6">
+                <PriceContainer :price="price"/>
             </div>
-        </div>
+
+            <div class="col-md-6">
+                <ProceedToCheckoutButton @clicked="handleSubmit"/>
+            </div>
+        </footer>
 
         <sweet-modal icon="success" ref="modal">{{ lang['checkoutMessage'] }}</sweet-modal>
     </div>

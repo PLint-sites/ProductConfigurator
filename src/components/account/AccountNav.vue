@@ -1,45 +1,60 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#">{{ lang['title'] }}</a>
+    <!--<nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsing-on-mobile" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{ lang['title'] }}</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="collapsing-on-mobile">
+                <form class="navbar-form navbar-left">
+                    <div id="language-switcher">
+                        <div class="language-input inline nl">
+                            <input :id="i18n.locales['nl-nl'].__name__" type="radio" v-model="i18n.locale" value="nl-nl">
+                            <label :for="i18n.locales['nl-nl'].__name__"></label>
                         </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li><button type="button" class="btn btn-default navbar-btn"><i class="fa fa-chevron-right"></i> {{ lang['backToListButton'] }}</button></li>
-                            </ul>
-
-                            <form class="navbar-form navbar-right">
-                                <div id="language-switcher">
-                                    <div class="language-input inline nl">
-                                        <input :id="i18n.locales['nl-nl'].__name__" type="radio" v-model="i18n.locale" value="nl-nl">
-                                        <label :for="i18n.locales['nl-nl'].__name__"></label>
-                                    </div>
-
-                                    <div class="language-input inline en">
-                                        <input :id="i18n.locales['en-us'].__name__" type="radio" v-model="i18n.locale" value="en-us">
-                                        <label :for="i18n.locales['en-us'].__name__"></label>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="language-input inline en">
+                            <input :id="i18n.locales['en-us'].__name__" type="radio" v-model="i18n.locale" value="en-us">
+                            <label :for="i18n.locales['en-us'].__name__"></label>
                         </div>
                     </div>
-                </nav>
+                </form>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><i class="fa fa-home"></i> {{ lang['backToListButton'] }}</a></li>
+                </ul>
             </div>
+            
         </div>
-    </div>
+    </nav>-->
+
+    <nav class="navbar">
+        <ul>
+            <li class="brand">{{ lang['title'] }}</li>
+            <li>
+                <form>
+                    <div id="language-switcher">
+                        <div class="language-input inline nl">
+                            <input :id="i18n.locales['nl-nl'].__name__" type="radio" v-model="i18n.locale" value="nl-nl">
+                            <label :for="i18n.locales['nl-nl'].__name__"></label>
+                        </div>
+
+                        <div class="language-input inline en">
+                            <input :id="i18n.locales['en-us'].__name__" type="radio" v-model="i18n.locale" value="en-us">
+                            <label :for="i18n.locales['en-us'].__name__"></label>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <li><a href="#"><i class="fa fa-home"></i> {{ lang['backToListButton'] }}</a></li>
+        </ul>
+    </nav>
 </template>
 
 <script>
@@ -68,11 +83,30 @@ export default {
 @orange: #FF9900;
 .navbar {
     border-radius: 0;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    margin-bottom: 0;
     background: @orange;
     border-color: #cc7a00;
-    
-    .navbar-brand {
-        width: 250px;
+    min-height: auto;
+
+    ul {
+        list-style: none;
+        padding: 10px;
+        margin-bottom: 0;
+        display: grid;
+        grid-template-columns: 150px 1fr 1fr;
+        place-items: center;
+
+        li, li > a {
+            color: white;
+            font-size: 16px;
+        }
+
+        .brand {
+            font-weight: bold;
+        }
     }
 }
 
@@ -81,6 +115,8 @@ div.language-input {
 
 	&.inline {
 		display: inline;
+        position: relative;
+        top: -3px;
 	}
 
 	label {

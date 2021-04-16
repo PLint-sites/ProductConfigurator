@@ -7,7 +7,7 @@ const i18n = new vI18n({
     'nl-nl': {
       __name__: 'Nederlands',
       title: 'Maak je kaart',
-      backToListButton: 'Alle demo\'s',
+      backToListButton: 'home',
       introduction1: 'Stel nu je persoonlijke kaart samen. Kies de vorm, maat en aantal en vul je persoonlijke tekst in. De prijs wordt automatisch berekend',
       introduction2: 'Maak meerdere kaarten door een extra kaart te samen te stellen!',
 
@@ -34,7 +34,7 @@ const i18n = new vI18n({
     'en-us': {
       __name__: 'English', // Specify a display name for each language is highly recommended
       title: 'Postcard configurator',
-      backToListButton: 'All demos',
+      backToListButton: 'home',
       introduction1: 'Use the configurator below to create your own stunning postcard. Just choose the card’s shape and paper size. Add your headline and main text and we’ll take care of the rest. The price will automatically adjust during your configuration.',
       introduction2: 'Simply configure multiple cards by adding another!',
 
