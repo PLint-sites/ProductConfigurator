@@ -1,39 +1,4 @@
 <template>
-    <!--<nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsing-on-mobile" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">{{ lang['title'] }}</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="collapsing-on-mobile">
-                <form class="navbar-form navbar-left">
-                    <div id="language-switcher">
-                        <div class="language-input inline nl">
-                            <input :id="i18n.locales['nl-nl'].__name__" type="radio" v-model="i18n.locale" value="nl-nl">
-                            <label :for="i18n.locales['nl-nl'].__name__"></label>
-                        </div>
-
-                        <div class="language-input inline en">
-                            <input :id="i18n.locales['en-us'].__name__" type="radio" v-model="i18n.locale" value="en-us">
-                            <label :for="i18n.locales['en-us'].__name__"></label>
-                        </div>
-                    </div>
-                </form>
-
-                <ul class="nav navbar-nav">
-                    <li><a href="#"><i class="fa fa-home"></i> {{ lang['backToListButton'] }}</a></li>
-                </ul>
-            </div>
-            
-        </div>
-    </nav>-->
-
     <nav class="navbar">
         <ul>
             <li class="brand">{{ lang['title'] }}</li>
@@ -52,7 +17,7 @@
                     </div>
                 </form>
             </li>
-            <li><a href="#"><i class="fa fa-home"></i> {{ lang['backToListButton'] }}</a></li>
+            <li><a href="https://plint-demos.nl"><i class="fa fa-home"></i> {{ lang['backToListButton'] }}</a></li>
         </ul>
     </nav>
 </template>
@@ -96,7 +61,7 @@ export default {
         padding: 10px;
         margin-bottom: 0;
         display: grid;
-        grid-template-columns: 150px 1fr 1fr;
+        grid-template-columns: 200px 80px 100px;
         place-items: center;
 
         li, li > a {

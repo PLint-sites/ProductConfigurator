@@ -1,13 +1,12 @@
 <template>
     <div>
-        <p>
-            {{ lang['introduction1'] }}
-            <br>
-            <br>
-            {{ lang['introduction2'] }}
-        </p>
-
         <div class="container">
+            <p>
+                {{ lang['introduction1'] }}
+                <br>
+                <br>
+                {{ lang['introduction2'] }}
+            </p>
             <ProductList 
                 :products="products"
                 @update-price="updatePrice"
@@ -17,11 +16,11 @@
             />
             
             <footer class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6 col-xs-6">
                     <PriceContainer :price="price"/>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6 col-xs-6">
                     <ProceedToCheckoutButton @clicked="handleSubmit"/>
                 </div>
             </footer>
