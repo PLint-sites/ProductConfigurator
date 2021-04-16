@@ -31,19 +31,18 @@ export default {
     position: relative;
     height: 200px;
     border: 1px dashed #dcdcdc;
-    margin-bottom: 20px;
+    margin: 20px 30px;
+
+    display: grid;
+    place-items: center;
+
+    .btn-secondary {
+        background: #6AA84F;
+        border: 1px solid #578b41;
+        color: white;
+        font-weight: bold;
+    }
 }
 
-.btn-secondary {
-    position: relative;
-    display: block;
-    background: #6AA84F;
-    border: 1px solid #578b41;
-    margin-left: auto;
-    margin-right: auto;
-    top: 50%;
-    margin-top: -17px;
-    color: white;
-    font-weight: bold;
-}
+
 </style>

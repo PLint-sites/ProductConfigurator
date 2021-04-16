@@ -7,23 +7,25 @@
             {{ lang['introduction2'] }}
         </p>
 
-        <ProductList 
-            :products="products"
-            @update-price="updatePrice"
-            @reset-product="resetProduct"
-            @remove-product="removeProduct"
-            @add-product="addProduct"
-        />
-        
-        <footer class="row">
-            <div class="col-md-6">
-                <PriceContainer :price="price"/>
-            </div>
+        <div class="container">
+            <ProductList 
+                :products="products"
+                @update-price="updatePrice"
+                @reset-product="resetProduct"
+                @remove-product="removeProduct"
+                @add-product="addProduct"
+            />
+            
+            <footer class="row">
+                <div class="col-md-6">
+                    <PriceContainer :price="price"/>
+                </div>
 
-            <div class="col-md-6">
-                <ProceedToCheckoutButton @clicked="handleSubmit"/>
-            </div>
-        </footer>
+                <div class="col-md-6">
+                    <ProceedToCheckoutButton @clicked="handleSubmit"/>
+                </div>
+            </footer>
+        </div>
 
         <sweet-modal icon="success" ref="modal">{{ lang['checkoutMessage'] }}</sweet-modal>
     </div>
@@ -88,7 +90,8 @@ export default {
 }
 
 p {
-    padding: 10px 30px 20px;
+    padding: 30px;
+    margin-bottom: 0;
 }
 
 .form-group {
