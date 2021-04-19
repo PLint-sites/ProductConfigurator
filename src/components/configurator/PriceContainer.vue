@@ -16,8 +16,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#price {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 34px;
+}
+
+@media (min-width: 360px) {
     #price {
         font-size: 20px;
-        font-weight: bold;
     }
+}
 </style>

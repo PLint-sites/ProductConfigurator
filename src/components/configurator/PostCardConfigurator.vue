@@ -1,12 +1,24 @@
 <template>
     <div>
         <div class="container">
-            <p>
-                {{ lang['introduction1'] }}
-                <br>
-                <br>
-                {{ lang['introduction2'] }}
-            </p>
+            <div id="intro">
+                <b>{{ lang['introduction1'] }}</b>
+
+                <div id="list">
+                    <ul>
+                        <li>{{ lang['product']['papershape'] }}</li>
+                        <li>{{ lang['product']['papersize'] }}</li>
+                    </ul>
+
+                    <ul>
+                        <li>{{ lang['product']['amount'] }}</li>
+                        <li>{{ lang['product']['quality'] }}</li>
+                    </ul>
+                </div>
+
+                <b>{{ lang['introduction2'] }}</b>
+            </div>
+
             <ProductList 
                 :products="products"
                 @update-price="updatePrice"
@@ -88,9 +100,21 @@ export default {
     background-color: @orange;
 }
 
-p {
-    padding: 30px;
+#intro {
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0px;
     margin-bottom: 0;
+
+    #list {
+        display: grid;
+        grid-template-columns: 100px 100px;
+        ul {
+           margin-top: 10px;
+        }
+    }
+    
 }
 
 .form-group {
@@ -103,7 +127,7 @@ p {
 }
 
 footer {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 /* Custom radiobuttons and checkboxes */

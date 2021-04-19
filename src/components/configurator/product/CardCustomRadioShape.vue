@@ -28,9 +28,9 @@
     display: inline-block;
     
     label {
-        width: 50px;
-        height: 50px;
-        margin-right: 15px;
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
         background: #eee;
         border: 1px solid #ccc;
         margin-bottom: 0;
@@ -80,5 +80,11 @@
         border-color: @orange;
         background: #ffd699;
 	}
+}
+
+@media (min-width: 360px) {
+    .custom-shape label {
+        margin-right: 15px;
+    }
 }
 </style>

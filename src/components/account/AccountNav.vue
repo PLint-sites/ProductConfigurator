@@ -58,10 +58,10 @@ export default {
 
     ul {
         list-style: none;
-        padding: 10px;
+        padding: 10px 20px;
         margin-bottom: 0;
         display: grid;
-        grid-template-columns: 200px 80px 100px;
+        grid-template-columns: 120px 70px 90px;
         place-items: center;
 
         li, li > a {
@@ -71,6 +71,11 @@ export default {
 
         .brand {
             font-weight: bold;
+            justify-self: start;
+        }
+
+        li:last-child {
+            justify-self: end;
         }
     }
 }
@@ -86,7 +91,7 @@ div.language-input {
 
 	label {
 		font-size: 15px;
-		margin-right: 10px;
+		/*margin-right: 10px;*/
 	}
 
 	/* General icon styling */
@@ -112,6 +117,10 @@ div.language-input {
     &.nl {
         input[type=radio] ~ label:before {
             content: url(../../assets/nl.png);
+        }
+
+        label {
+            margin-right: 10px;
         }
     }
 
