@@ -12,8 +12,6 @@ describe('Switching the language', () => {
     cy.visit('/')
     cy.get('input#English + label').click()
     cy.contains('Configure your personal postcard')
-    cy.get('input#Nederlands + label').click()
-    cy.contains('Maak je kaat')
   })
 })
 
