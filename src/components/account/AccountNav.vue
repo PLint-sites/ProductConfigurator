@@ -17,7 +17,7 @@
                     </div>
                 </form>
             </li>
-            <li><a href="https://plint-demos.nl"><i class="fa fa-home"></i> {{ lang['backToListButton'] }}</a></li>
+            <li><i class="fa fa-undo"></i> <a href="https://plint-demos.nl">{{ lang['backToListButton'] }}</a></li>
         </ul>
     </nav>
 </template>
@@ -61,12 +61,16 @@ export default {
         padding: 10px 20px;
         margin-bottom: 0;
         display: grid;
-        grid-template-columns: 120px 70px 90px;
+        grid-template-columns: 120px 70px 1fr;
         place-items: center;
 
         li, li > a {
             color: white;
             font-size: 16px;
+        }
+
+        li > a {
+            text-decoration: underline;
         }
 
         .brand {

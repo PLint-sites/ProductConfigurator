@@ -7,7 +7,7 @@ const i18n = new vI18n({
     'nl-nl': {
       __name__: 'Nederlands',
       title: 'Maak je kaart',
-      backToListButton: 'home',
+      backToListButton: 'Terug naar PLint\'s Playground',
       introduction1: 'Stel je persoonlijke kaart samen. Kies uit:',
       introduction2: 'en de prijs wordt automatisch berekend!',
 
@@ -34,7 +34,7 @@ const i18n = new vI18n({
     'en-us': {
       __name__: 'English', // Specify a display name for each language is highly recommended
       title: 'Postcard config',
-      backToListButton: 'home',
+      backToListButton: 'Back to PLint\'s Playground',
       introduction1: 'Configure your personal postcard:',
       introduction2: 'the price is updated automatically!',
 
