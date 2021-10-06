@@ -58,7 +58,7 @@ export default {
 
     ul {
         list-style: none;
-        padding: 10px 20px;
+        padding: 10px;
         margin-bottom: 0;
         display: grid;
         grid-template-columns: 120px 70px 1fr;
